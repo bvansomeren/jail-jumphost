@@ -1,0 +1,19 @@
+---
+# defaults file for bvansomeren.jail-jumphost
+
+ssh_authentication_methods: "publickey"
+
+jumphost_two_factor: False
+
+jumphost_packages:
+- pam_google_authenticator
+- libqrencode
+
+sshd_custom_options:
+- name: AllowTcpForwarding
+  value: "no"
+- name: ForceCommand
+  value: /usr/local/bin/bastion-shell
+
+jumphost_log_folder: /var/log/bastion
+jumphost_shell: /usr/local/bin/bash
